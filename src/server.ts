@@ -16,11 +16,19 @@ dotenv.config();
 
 const app: Application = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "http://localhost:8081", 
+  "https://ztce-frontend.onrender.com", 
+];
+
 // Middlewares
 app.use(
   cors({
-    origin: "*", 
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: allowedOrigins, 
+    methods: ["GET", "POST", "PUT", "DELETE"],    
+  allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(express.json());
