@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: ZTCE-NUESA API
+  version: 1.0.0
+  description: API documentation for ZTCE-NUESA backend
+servers:
+  - url: http://localhost:5000
+    description: Local server
+
+paths:
+  /api/attendees:
+    get:
+      summary: Get all attendees
+      responses:
+        200:
+          description: List of all registered attendees
+    post:
+      summary: Register a new attendee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fullName:
+                  type: string
+                gender:
+                  type: string
+                dateOfBirth:
+                  type: string
+                phoneNumber:
+                  type: string
+                email:
+                  type: string
+                whatsappNumber:
+                  type: string
+                institutionName:
+                  type: string
+                faculty:
+                  type: string
+                department:
+                  type: string
+                level:
+                  type: string
+                heardFrom:
+                  type: string
+                expectations:
+                  type: string
+      responses:
+        201:
+          description: Successfully created attendee
