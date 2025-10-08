@@ -33,8 +33,6 @@ paths:
                   type: string
                 email:
                   type: string
-                whatsappNumber:
-                  type: string
                 institutionName:
                   type: string
                 faculty:
