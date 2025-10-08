@@ -7,6 +7,9 @@ const cors = require("cors");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
 const attendeeRoutes = require("./routes/attendeeRoutes");
+const swaggerUi = require("swagger-ui-express");
+const YAML = require("yamljs");
+const path = require("path");
 dotenv.config();
 const app = express();
 // Middlewares
@@ -20,6 +23,9 @@ app.get("/", (req, res) => {
 });
 // Attendee routes
 app.use("/api/attendees", attendeeRoutes);
+const swaggerDocument = YAML.load(path.join(__dirname, "swagger.yaml"));
+// Swagger route
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const PORT = process.env.PORT || 5000;
 // Connect DB first, then start server
 connectDB()
