@@ -10,15 +10,19 @@ const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const path = require("path");
 
-
-
-
 dotenv.config();
+
+
 
 const app: Application = express();
 
 // Middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
