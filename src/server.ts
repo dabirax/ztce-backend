@@ -32,7 +32,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/attendees", attendeeRoutes);
 
 
-const swaggerDocument = YAML.load(path.join(__dirname, "swagger.yaml"));
+const swaggerDocument = YAML.load(path.join(__dirname, "../swagger.yaml"));
 
 // Swagger route
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
