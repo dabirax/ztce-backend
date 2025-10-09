@@ -24,7 +24,7 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
-app.options("*", cors());
+app.options("/*", cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
